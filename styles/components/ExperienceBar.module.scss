@@ -1,0 +1,36 @@
+@import "styles/variables.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+
+  & span {
+    font-size: 1rem;
+  }
+
+  & > div {
+    flex: 1;
+    height: 4px;
+    border-radius: 4px;
+    background-color: $gray-line;
+    margin: 0 1.5rem;
+  }
+
+  & > div > div {
+    height: 100%;
+    border-radius: inherit;
+    background-color: $green;
+    position: relative;
+
+    & span {
+      position: absolute;
+      left: 100%;
+      bottom: -2.25rem;
+      transform: translateX(-50%);
+      padding: .25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
