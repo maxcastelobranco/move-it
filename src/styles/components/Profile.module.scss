@@ -1,0 +1,35 @@
+@use "../colors" as *;
+
+.container {
+  display: flex;
+  align-items: center;
+
+  & > img {
+    $imageSize: 5.5rem;
+    width: $imageSize;
+    height: $imageSize;
+    border-radius: $imageSize/2;
+  }
+
+  & > div {
+    margin-left: 1.5rem;
+
+    & > strong {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $title;
+    }
+
+    & > p {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      margin-top: .5rem;
+
+      & img {
+        margin-right: .5rem;
+      }
+    }
+  }
+
+}

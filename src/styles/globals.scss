@@ -1,4 +1,4 @@
-@import "styles/variables.scss";
+@use "colors" as *;
 
 *, *::before, *::after {
   margin: 0;
@@ -22,15 +22,6 @@ button {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.container {
-  height: 100vh;
-  max-width: 992px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem;
-  display: flex;
-  flex-direction: column;
 }
 
 @media (max-width: 1080px) {
