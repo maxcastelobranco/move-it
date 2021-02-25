@@ -21,14 +21,12 @@ export type ChallengesState = {
 };
 
 export enum ChallengesActionTypes {
-  LevelUp = "LEVEL_UP",
   StartNewChallenge = "START_NEW_CHALLENGE",
   CompletedChallenge = "COMPLETED_CHALLENGE",
   FailedChallenge = "FAILED_CHALLENGE",
 }
 
 type ChallengesActionPayloads = {
-  [ChallengesActionTypes.LevelUp]: undefined;
   [ChallengesActionTypes.StartNewChallenge]: undefined;
   [ChallengesActionTypes.CompletedChallenge]: { earnedExperience: number };
   [ChallengesActionTypes.FailedChallenge]: undefined;

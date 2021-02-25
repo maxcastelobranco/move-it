@@ -1,15 +1,10 @@
 import { Reducer } from "react";
 import { ChallengesActions, ChallengesActionTypes, ChallengesState } from "../types";
 import { challenges } from "../../../challenges";
+import { getNextLevelExperience } from "../providers/ChallengesProvider";
 
 export const challengesReducer: Reducer<ChallengesState, ChallengesActions> = (state, action) => {
   switch (action.type) {
-    case ChallengesActionTypes.LevelUp: {
-      return {
-        ...state,
-        level: state.level + 1,
-      };
-    }
     case ChallengesActionTypes.StartNewChallenge: {
       const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
 
@@ -19,9 +14,19 @@ export const challengesReducer: Reducer<ChallengesState, ChallengesActions> = (s
       };
     }
     case ChallengesActionTypes.CompletedChallenge: {
+      let currentExperience = state.currentExperience + action.payload.earnedExperience;
+      let currentLevel = state.level;
+
+      const nextLevelExperience = getNextLevelExperience(state.level);
+
+      if (currentExperience >= nextLevelExperience) {
+        currentExperience -= nextLevelExperience;
+        ++currentLevel;
+      }
+
       return {
-        ...state,
-        currentExperience: state.currentExperience + action.payload.earnedExperience,
+        level: currentLevel,
+        currentExperience,
         challengesCompleted: state.challengesCompleted + 1,
         activeChallenge: null,
       };

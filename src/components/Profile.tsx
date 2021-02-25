@@ -1,7 +1,12 @@
 import styles from "../styles/components/Profile.module.scss";
 import ArrowUp from "./svgs/ArrowUp";
+import { useChallengesContext } from "../context/providers/ChallengesProvider";
 
 export default function Profile() {
+  const {
+    state: { level },
+  } = useChallengesContext();
+
   return (
     <div className={styles.container}>
       <img src="/scorpion.jpg" alt="Me" />
@@ -9,7 +14,7 @@ export default function Profile() {
         <strong> Max Branco</strong>
         <p>
           <ArrowUp />
-          Level 999
+          Level {level}
         </p>
       </div>
     </div>
