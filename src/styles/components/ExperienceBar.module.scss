@@ -23,8 +23,10 @@
     border-radius: inherit;
     background-color: $green;
     position: relative;
+    transition: width 250ms ease;
 
     & span {
+      width: 100%;
       position: absolute;
       left: 100%;
       bottom: -$bottom;

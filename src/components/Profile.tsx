@@ -1,4 +1,5 @@
 import styles from "../styles/components/Profile.module.scss";
+import ArrowUp from "./svgs/ArrowUp";
 
 export default function Profile() {
   return (
@@ -7,7 +8,7 @@ export default function Profile() {
       <div>
         <strong> Max Branco</strong>
         <p>
-          <img src="/icons/level.svg" alt="Level" />
+          <ArrowUp />
           Level 999
         </p>
       </div>
