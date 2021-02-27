@@ -1,6 +1,6 @@
 import { Reducer } from "react";
 import { ChallengesActions, ChallengesActionTypes, ChallengesState } from "../types";
-import { challenges } from "../../../challenges";
+import { challenges } from "../../db/data/challenges";
 import { getNextLevelExperience } from "../providers/ChallengesProvider";
 
 export const challengesReducer: Reducer<ChallengesState, ChallengesActions> = (state, action) => {

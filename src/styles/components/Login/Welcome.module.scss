@@ -1,0 +1,65 @@
+@use "../../colors" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & > svg {
+    margin: 2rem 0;
+  }
+
+  & > h1 {
+    font-size: 2.25rem;
+    color: $white;
+    margin-top: 2rem;
+  }
+}
+
+.github {
+  display: flex;
+  align-items: center;
+  margin: 1.2rem 0;
+  color: $text-blue;
+
+  & > svg {
+    margin-right: .8rem;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+
+  & > input {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 34px;
+    height: 100%;
+    color: $text-blue;
+    background: linear-gradient(to right, #4953B8, rgba(73, 83, 184, 0.01));
+    background-size: 200%;
+    border-radius: 5px 0 0 5px;
+    padding-left: 1rem;
+    border: none;
+    outline: none;
+    transition: background-position 500ms ease;
+
+    &:hover {
+      background-position: right;
+    }
+  }
+
+  & button {
+    height: 100%;
+    background-color: $blue-dark;
+    padding: 1rem;
+    transition: background-color 250ms ease, filter 250ms ease;
+
+    &:hover {
+      filter: brightness(.9);
+    }
+  }
+}

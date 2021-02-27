@@ -3,29 +3,36 @@ import React, { createContext, Dispatch, useContext, useMemo, useReducer } from 
 import { challengesReducer } from "../reducers/challengesReducer";
 import { ChallengesActions, ChallengesState } from "../types";
 
+export interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  avatarUrl: string;
+  level: number;
+  currentExperience: number;
+  challengesCompleted: number;
+}
+
 export const getNextLevelExperience = (level: number) => Math.pow((level + 1) * 5, 2);
 
-const initialState: ChallengesState = {
-  level: 1,
-  currentExperience: 0,
-  challengesCompleted: 0,
-  activeChallenge: null,
-};
-
-const ChallengesContext = createContext<{
+interface ChallengesContextData {
   state: ChallengesState;
   dispatch: Dispatch<ChallengesActions>;
   nextLevelExperience: number;
   nextLevelPercentage: number;
-}>({
-  state: initialState,
-  dispatch: () => null,
-  nextLevelExperience: getNextLevelExperience(initialState.level),
-  nextLevelPercentage: 0,
-});
+  currentUser: User;
+}
 
-const ChallengesProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(challengesReducer, initialState);
+const ChallengesContext = createContext<ChallengesContextData>({} as ChallengesContextData);
+
+const ChallengesProvider: React.FC<{ user: User }> = ({ children, user }) => {
+  const [state, dispatch] = useReducer(challengesReducer, {
+    level: user.level,
+    currentExperience: user.currentExperience,
+    challengesCompleted: user.challengesCompleted,
+    activeChallenge: null,
+  });
 
   const nextLevelExperience = useMemo(() => {
     return getNextLevelExperience(state.level);
@@ -36,7 +43,7 @@ const ChallengesProvider: React.FC = ({ children }) => {
 
   return (
     <ChallengesContext.Provider
-      value={{ state, dispatch, nextLevelExperience, nextLevelPercentage }}
+      value={{ state, dispatch, nextLevelExperience, nextLevelPercentage, currentUser: user }}
     >
       {children}
     </ChallengesContext.Provider>

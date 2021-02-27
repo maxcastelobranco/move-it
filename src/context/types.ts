@@ -1,4 +1,4 @@
-import { Challenge } from "../../challenges";
+import { Challenge } from "../db/data/challenges";
 
 export type ActionMap<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined

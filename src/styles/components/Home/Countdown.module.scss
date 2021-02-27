@@ -1,0 +1,103 @@
+@use "../../colors" as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  color: $title;
+
+  & > div {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: $white;
+    box-shadow: 0 0 60px rgba(0,0,0,0.05);
+    border-radius: .5rem;
+    font-size: 8.5rem;
+    text-align: center;
+
+    & > span {
+      flex: 1;
+    }
+
+    $countdownBorderColor: #F0F1F3;
+
+    & > span:first-child {
+      border-right: 1px solid $countdownBorderColor;
+    }
+    & > span:last-child {
+      border-left: 1px solid $countdownBorderColor;
+    }
+  }
+
+  & > span {
+    font-size: 6.25rem;
+  }
+
+  $spacing: 1rem;
+
+  & > div:first-child {
+    margin-right: $spacing;
+  }
+  & > div:last-child {
+    margin-left: $spacing;
+  }
+}
+
+.countdownButton {
+  $buttonHeight: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: $buttonHeight;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: .5rem;
+  position: absolute;
+  bottom: -$buttonHeight - 1.25rem;
+
+  & > svg {
+    margin-left: .8rem;
+  }
+}
+
+.startCountdownButton {
+  background-color: $blue;
+  color: $white;
+  transition: background-color 250ms ease;
+
+  &:hover {
+    background-color: $blue-dark;
+  }
+}
+
+.stopCountdownButton {
+  background-color: $white;
+  color: $title;
+  transition: background-color 250ms ease, color 250ms ease;
+
+  & > svg > path {
+    transition: fill 250ms ease;
+  }
+
+  &:hover {
+    background-color: $red;
+    color: $white;
+
+    & > svg > path {
+      fill: $white;
+    }
+  }
+}
+
+.countdownEnded {
+  cursor: not-allowed;
+  background-color: $white;
+  color: $title;
+  border-bottom: 4px solid $green;
+}
