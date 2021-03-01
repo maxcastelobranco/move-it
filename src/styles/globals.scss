@@ -4,6 +4,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: $blue $text-blue;
+
+  &::-webkit-scrollbar {
+    width: .5rem;
+    border-radius: .5rem;
+  }
 }
 
 body, input, textarea, button {

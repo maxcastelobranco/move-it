@@ -5,12 +5,16 @@ import Github from "../svgs/Github";
 import { SubmitHandler, useForm } from "react-hook-form";
 import api from "../../services/api";
 import { destroyCookie, setCookie } from "nookies";
+import { useState } from "react";
+import AlertTriangle from "../svgs/AlertTriangle";
 
 interface FormValues {
   username: string;
 }
 
 export default function Welcome() {
+  const [error, setError] = useState(false);
+
   const { register, handleSubmit } = useForm<FormValues>({
     criteriaMode: "firstError",
     mode: "onChange",
@@ -25,9 +29,12 @@ export default function Welcome() {
     const [potentialUser] = response.data;
 
     if (potentialUser) {
+      setError(false);
       destroyCookie(null, "moveIt:user");
       setCookie(null, "moveIt:user", JSON.stringify(potentialUser));
       window.location.href = "/";
+    } else {
+      setError(true);
     }
   };
 
@@ -55,6 +62,12 @@ export default function Welcome() {
           <ArrowRight />
         </button>
       </div>
+      {error && (
+        <p>
+          <AlertTriangle />
+          User not found. Please try again.
+        </p>
+      )}
     </div>
   );
 }

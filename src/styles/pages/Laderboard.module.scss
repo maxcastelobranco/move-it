@@ -1,0 +1,130 @@
+@use "../colors" as *;
+
+.container {
+  width: calc(100vw - 7rem);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  & > header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: $background;
+    padding: 1rem 2.4rem;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+
+    & > h1 {
+      margin-bottom: .5rem;
+      font-size: 2.25rem;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $text;
+      opacity: .5;
+      text-transform: uppercase;
+      font-size: .8rem;
+      font-weight: 700;
+
+      & > div:first-child {
+        display: flex;
+        align-items: center;
+
+        & h2 + h2 {
+          margin-left: 1.5rem;
+        }
+      }
+      & > div:last-child {
+        display: flex;
+        align-items: center;
+
+        & h2 + h2 {
+          margin-left: 8rem;
+          margin-right: 1rem;
+        }
+      }
+
+    }
+  }
+}
+
+.leaderboard {
+  padding: 1.5rem 2rem;
+
+  & > div + div {
+    margin-top: 1rem;
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $white;
+
+    & > div {
+      width: 45%;
+      display: flex;
+      align-items: center;
+
+      & > h3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 7rem;
+        height: 6rem;
+        border-right: 4px solid $background;
+      }
+
+      & > div {
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+
+        & > img {
+          $imageSize: 64px;
+          width: $imageSize;
+          height: $imageSize;
+          border-radius: $imageSize / 2;
+          object-fit: cover;
+          transition: transform 250ms ease, box-shadow 250ms ease;
+
+          &:hover {
+            transform: scale(1.4);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+          }
+        }
+
+        & > div {
+          margin-left: 1rem;
+
+          & > h4 {
+            margin-bottom: .5rem;
+          }
+
+          & > div {
+            display: flex;
+            align-items: center;
+
+            & > svg {
+              margin-right: .5rem;
+            }
+          }
+        }
+      }
+    }
+
+    & > p {
+      color: $blue;
+    }
+
+    & > p + p {
+      margin-right: 1rem;
+    }
+  }
+}

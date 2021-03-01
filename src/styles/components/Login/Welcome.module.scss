@@ -14,6 +14,17 @@
     color: $white;
     margin-top: 2rem;
   }
+
+  & > p {
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
+    color: $white;
+
+    & > svg {
+      margin-right: .5rem;
+    }
+  }
 }
 
 .github {
@@ -52,7 +63,7 @@
     }
   }
 
-  & button {
+  & > button {
     height: 100%;
     background-color: $blue-dark;
     padding: 1rem;
