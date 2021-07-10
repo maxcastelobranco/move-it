@@ -15,11 +15,11 @@
 * [JSON Server](https://github.com/typicode/json-server)
 * [FakerJs](https://github.com/Marak/faker.js)
 
-### Login page
+## Login page
 ![LoginPage](.github/login.gif)
 
-### Home page
+## Home page
 ![LoginPage](.github/home.gif)
 
-### Leaderboard page
+## Leaderboard page
 ![LoginPage](.github/leaderboard.gif)
