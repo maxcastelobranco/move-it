@@ -85,7 +85,7 @@ export default function ChallengeBox() {
                 className={styles.challengeFailedButton}
                 onClick={failChallenge}
               >
-                I&apos;ve fucked up!
+                I missed it!
               </button>
               <button
                 type="button"
