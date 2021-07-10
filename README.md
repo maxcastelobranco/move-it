@@ -5,7 +5,7 @@
 ## MoveIt
 
 <h4 align="center">
- MoveIt is a web app that uses the Pomodoro technique alongside meditation related challenges aimed to prevent burnout. 
+ MoveIt is a web app that uses the Pomodoro technique <br/> alongside meditation related challenges aimed to prevent burnout. 
 </h4>
 
 ## Technologies used in this project
